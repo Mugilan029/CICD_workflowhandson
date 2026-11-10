@@ -37,3 +37,15 @@ jobs:
       - name: docker image push
         run: docker push  mugibro/cicdworkflows:latest
 
+  deploy:
+    name: delevery check
+    runs-on: ubuntu-latest
+
+    environment:
+      name:delevry check
+    steps:
+      - name: print the code
+        run: echo "Testing deleivery chhelc a"
+
+
+
