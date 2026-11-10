@@ -38,6 +38,7 @@ jobs:
         run: docker push  mugibro/cicdworkflows:latest
 
   deploy:
+    needs: build
     name: delevery check
     runs-on: ubuntu-latest
 
