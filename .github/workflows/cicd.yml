@@ -42,11 +42,29 @@ jobs:
     name: delevery check
     runs-on: ubuntu-latest
 
-    environment:
-      name:delevry check
     steps:
       - name: print the code
         run: echo "Testing deleivery chhelc a"
+
+      - name: server ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST_IP}}
+          username:  ubuntu
+          key:  ${{ secrets.AWS_EC2_KEY}}
+          port: 22
+          script: |
+            
+            echo "Connected to EC2"
+            
+            sudo docker pull mugibro/cicdworkflows:latest
+            
+            sudo docker stop my-springboot-app || true
+            
+            sudo docker rm my-springboot-app || true
+            
+            sudo docker run -d \ --name my-springboot-app \-p 8080:8080 \mugibro/cicdworkflows:latest
+
 
 
 
