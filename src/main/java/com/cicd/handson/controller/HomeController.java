@@ -16,8 +16,8 @@ public class HomeController {
     @GetMapping("/api/message")
     public Map<String, String> message() {
         return Map.of(
-                "project", "CICDPipelineHandson",
-                "message", "Java 17 Spring Boot application is running"
+                "project", "chnaegs the code and test it",
+                "message", "Java 17 test new features in an sereevr"
         );
     }
 
